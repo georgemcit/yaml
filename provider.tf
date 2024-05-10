@@ -29,3 +29,7 @@ variable "client_secret"{
 variable "tenant_id"{
   type=string
 }
+resource "azurerm_resource_group" "azureresourcegroup" {
+  name     = "george_ibrahim_canada"
+  location = "Canada Central"
+}
