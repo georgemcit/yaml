@@ -2,10 +2,11 @@ locals{
   linux_app=[for f in fileset("${path.module}/linuxappconfiguration", "[^_]*.yaml") : yamldecode(file("${path.module}/linuxappconfiguration/${f}"))]
   linux_app_list = flatten([
     for app in local.linux_app : [
-      for linuxapps in try(linuxapp.yaml, []) :{
+      for linuxapps in try(app.listoflinuxapp, []) :{
         name=linuxapps.name
         os_type=linuxapps.os_type
-        sku_name=linuxapps.sku_name     
+        sku_name=linuxapps.sku_name
+        enabled =linuxapps.enabled
       }
     ]
 ])
