@@ -5,7 +5,8 @@ locals{
       for linuxapps in try(app.listoflinuxapp, []) :{
         name=linuxapps.name
         os_type=linuxapps.os_type
-        sku_name=linuxapps.sku_name  
+        sku_name=linuxapps.sku_name
+        enabled =linuxapps.enabled
       }
     ]
 ])
@@ -20,7 +21,7 @@ resource "azurerm_service_plan" "george" {
 }
 
 resource "azurerm_linux_web_app" "george1980" {
-  for_each            = azurerm_service_plan.batcha06sp
+  for_each            = azurerm_service_plan.george
   name                = each.value.name
   resource_group_name = azurerm_resource_group.azureresourcegroup.name
   location            = azurerm_resource_group.azureresourcegroup.location
@@ -29,4 +30,3 @@ resource "azurerm_linux_web_app" "george1980" {
 
   site_config {}
 }
-
