@@ -30,9 +30,3 @@ resource "azurerm_linux_web_app" "georgeapp" {
 
   site_config {}
 }
-variable "name"{
-  type=string
-}
-variable "location"{
-  type=string
-}
