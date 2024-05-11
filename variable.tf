@@ -5,8 +5,7 @@ locals{
       for linuxapps in try(app.listoflinuxapp, []) :{
         name=linuxapps.name
         os_type=linuxapps.os_type
-        sku_name=linuxapps.sku_name
-        enabled =linuxapps.enabled
+        sku_name=linuxapps.sku_name  
       }
     ]
 ])
@@ -27,6 +26,5 @@ resource "azurerm_linux_web_app" "george1980" {
   location            = azurerm_resource_group.azureresourcegroup.location
   service_plan_id     = each.value.id
   enabled             = each.value.enabled
-
-  site_config {}
+ site_config {}
 }
