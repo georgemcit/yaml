@@ -29,3 +29,11 @@ resource "azurerm_linux_web_app" "george1980" {
 
   site_config {}
 }
+variable "resource_group_name"{
+    type=string
+    default="name"
+}
+variable "location"{
+    type=string
+    default="location"
+}
