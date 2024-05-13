@@ -49,3 +49,7 @@ variable "environment"{
  type=string
  default="staging"
 }
+variable "linuxappconfiguration"{
+ type=string
+ default="linuxappconfiguration"
+}
