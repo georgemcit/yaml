@@ -4,9 +4,6 @@ output "azure_linux_app" {
 output "names_linux_app" {
   value=[for app in local.linux_app_list : app.name]
 }
-output "names_linux_app" {
-  value=[for app in local.linux_app_list : app.name]
-}
 output "os_linux_app" {
   value=[for app in local.linux_app_list : app.os_type]
 }
