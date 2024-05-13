@@ -10,3 +10,6 @@ output "os_linux_app" {
 output "sku_linux_app" {
   value=[for app in local.linux_app_list : app.sku_name]
 }
+output "linuxappconfiguration" {
+  value = var.linuxappconfiguration
+}
